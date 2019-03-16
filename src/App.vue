@@ -1,16 +1,33 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div>
+      <Header />
     </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+import Header from '@/components/Header.vue'
+export default {
+  watch:{
+    $route(to, from){
+      console.log('Router view changing...');
+      // this.GLOBAL.viewRouterLoaded = false;
+
+      // console.log(from, to);
+    }
+  },
+  components:{
+    Header
+  }
+}
+</script>
+
 <style lang="scss">
+@import './assets/scss/main.scss';
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
