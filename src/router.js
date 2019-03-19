@@ -19,9 +19,14 @@ export default new Router({
       component: () => import('./views/Catalog.vue')
     },
     {
-      path: '/catalog/:label',
-      name: 'label',
-      component: () => import('./views/Label.vue')
-    }
+      path: '/:category/:slug',
+      name: 'product',
+      component: () => import('./views/Product.vue')
+    },
+    // {
+    //   path: '/:label',
+    //   name: 'label',
+    //   component: () => import('./views/Label.vue')
+    // }
   ]
 })

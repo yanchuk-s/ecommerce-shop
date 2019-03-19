@@ -2,7 +2,16 @@ body{
     margin: 0;
     width: 100%;
     font-family: 'Montserrat','Roboto' sans-serif!important;
-    background-color: #f2f2f2;
+    background-color: #f2f2f2!important;
+    height: 100%
+}
+
+.theme--light.application{
+    background: #f2f2f2!important;
+}
+
+html{
+    height: 100%;
 }
 
 .container{

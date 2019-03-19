@@ -17,6 +17,9 @@
         </v-btn>
       </div>
       <ul>
+        <li>
+          <a @click="homelink">Home</a>
+        </li>
          <li
           v-for="category in categories" v-bind:key="category.title"
         >
@@ -44,6 +47,9 @@
     </div>
     <div class="category-nav">
       <ul>
+        <li>
+          <a @click="homelink">Home</a>
+        </li>
         <li
           v-for="category in categories" v-bind:key="category.title"
         >
@@ -85,19 +91,23 @@ export default {
     showHide: function () {
       this.mobNav =! this.mobNav
     },
-    catalogLink: function (category) {
+    closenavLink: function () {
       let _this = this
-      this.$router.push({ name: 'catalog', params: { category: category } })
       if(_this.mobNav == true){
         _this.mobNav = false
       }
     },
+    catalogLink: function (category) {
+      this.$router.push({ name: 'catalog', params: { category: category } })
+      this.closenavLink()
+    },
     labelLink: function (label) {
-      let _this = this
-      this.$router.push({ name: 'label', params: { label: label } })
-      if(_this.mobNav == true){
-        _this.mobNav = false
-      }
+      this.$router.push({ name: 'catalog', params: { category: label } })
+      this.closenavLink()
+    },
+    homelink: function (){
+      this.$router.push({ name: 'home'})
+      this.closenavLink()
     }
   }
 }
@@ -149,6 +159,7 @@ export default {
     .container{
       .mobile-nav{
         display: block;
+        z-index: 9998;
       }
       .category-nav{
         display: none;

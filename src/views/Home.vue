@@ -4,6 +4,7 @@
     <v-layout row wrap>
       <v-flex v-for="(product, index) in products" :key="index" xs3>
         <Item
+          @click.native="prodshow"
           :item= product
         />
       </v-flex>
@@ -24,6 +25,11 @@ export default {
   },
   components:{
     Item
+  },
+  methods: {
+    prodshow: function () {
+      console.log('123')
+    }
   }
 }
 </script>

@@ -1,13 +1,16 @@
 <template>
   <div class="item">
-    <div class="item-img">
+    <div 
+      @click="prodPage(getCategoryName.title,item.slug)"
+      class="item-img"
+    >
       <img v-bind:src="item.generalPhoto" alt="">
     </div>
     <div class="item-title">
       {{item.title}}
     </div>
-    <div class="item-category">
-      {{item.category}}
+    <div class="item-category" @click="catalogLink(getCategoryName.title)">
+      {{getCategoryName.title}}
     </div>
     <div class="item-price">
       {{item.price}}$
@@ -32,6 +35,19 @@ export default {
     item:{
       type: Object
     }
+  },
+  computed: {
+    getCategoryName() {
+       return this.$store.getters.getGategoryForItem(this.item.category);
+    }
+  },
+  methods: {
+    catalogLink: function (category) {
+      this.$router.push({ name: 'catalog', params: { category: category } })
+    },
+    prodPage: function (category,slug) {
+      this.$router.push({ name: 'product', params: { category: category, slug: slug } })
+    }
   }
 }
 </script>
@@ -40,9 +56,9 @@ export default {
   .item{
     margin: 10px 0;
     padding: 12px;
-    cursor: pointer;
     position: relative;
     .item-img{
+      cursor: pointer;
       img{
         width: 100%;
         height: 300px;
@@ -54,11 +70,14 @@ export default {
       display: flex;
       justify-content: center;
       text-align: center;
+      cursor: pointer;
     }
     .item-category{
       font-size: 14px;
       margin-top: 6px;
       color: #868686;
+      text-transform: capitalize;
+      cursor: pointer;
     }
     .item-price{
       margin-top: 10px;
