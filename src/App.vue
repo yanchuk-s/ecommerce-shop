@@ -30,7 +30,7 @@ import Header from '@/components/Header.vue'
 export default {
   watch:{
     $route(to, from){
-      console.log('Router view changing...');
+      // console.log('Router view changing...');
       // this.$store.dispatch('showHideLoader')
     }
   },
@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     showHideLoader(){
-      console.log(this.$store.getters.getLoaderStatus)
+      // console.log(this.$store.getters.getLoaderStatus)
       return this.$store.getters.getLoaderStatus
     }
   }

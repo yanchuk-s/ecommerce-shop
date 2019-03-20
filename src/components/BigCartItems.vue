@@ -64,7 +64,7 @@ export default {
     },
     prodPage: function (category,slug) {
       this.$router.push({ name: 'product', params: { category: category, slug: slug } })
-      this.$parent.$emit('showHideSmallCart');
+      // this.$parent.$emit('showHideSmallCart');
     },
   }
 }
