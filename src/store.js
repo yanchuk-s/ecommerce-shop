@@ -303,7 +303,9 @@ export default new Vuex.Store({
         description: 'Рюкзак Napapijri Hala изготовлен из практичного полиэстера. Классическая модель для повседневного использования оснащена вместительным основным отсеком на двойной молнии. Внутри находится отделение для ноутбука с ремнем на липучке. Мягкая задняя панель и регулируемые плечевые ремни обеспечивают комфорт в течение всего дня, даже если рюкзак полностью заполнен. Спереди расположен еще один карман на молнии для вещей, к которым требуется быстрый доступ. Рюкзак оснащен ручкой для переноски. Завершением дизайна служит брендинг на фронтальном кармане и ремнях. Контрастные ленты с логотипом итальянской марки, выполненные в современной манере, являются отсылкой к классическим базовым элементам гардероба из прошлых коллекций.'
       }
     ],
-    loaderRoute: false,
+    bigCart: [],
+    smallCart:[],
+    loaderRoute: false
   },
   getters: {
     getAllCategories: state => {
@@ -347,16 +349,105 @@ export default new Vuex.Store({
     },
     getLoaderStatus: state => {
       return state.loaderRoute
+    },
+    getSmallCart: state => {
+      return state.smallCart
+    },
+    getSmallCartLenght: state => {
+      return state.smallCart.length
+    },
+    getBigCart: state => {
+      return state.bigCart
     }
   },
   mutations: {
+    localSaveSmallCart(state){
+      const smallCart = JSON.stringify(state.smallCart);
+      localStorage.setItem('smallCart', smallCart);
+    },
+    localSaveBigCart(state){
+      const bigCart = JSON.stringify(state.bigCart);
+      localStorage.setItem('bigCart', bigCart);
+    },
     showHideLoader(state){
       state.loaderRoute =! state.loaderRoute
-    }
+    },
+    addProductSmallcart(state, product){
+      state.smallCart.push(product)
+    },
+    deleteProductSmallcart(state, product){
+      state.smallCart.splice(product, 1);
+      state.bigCart.splice(product, 1);
+    },
+    addProductBigCart(state, product){
+      state.bigCart.push(product)
+    },
+    deleteProductBigcart(state, product){
+      state.bigCart.splice(product, 1);
+      state.smallCart.splice(product, 1);
+    },
   },
   actions: {
     showHideLoader({commit}){
       commit('showHideLoader')
+    },
+    addProductSmallcart({commit}, product){
+      let productTosmallCart =
+        {
+          size: product.size,
+          id: product.id,
+          category: product.category
+        }
+      this.state.products.forEach(function(item) {
+        if(item.id === product.id){
+          productTosmallCart.title = item.title
+          productTosmallCart.slug = item.slug
+          productTosmallCart.generalPhoto = item.generalPhoto
+          productTosmallCart.price = item.price
+        }
+      });
+      commit('addProductSmallcart', productTosmallCart)
+      commit('localSaveSmallCart')
+    },
+    addProductBigCart({commit}, product){
+      let productBigCart ={
+          size: product.size,
+          id: product.id,
+          category: product.category
+      }
+      this.state.products.forEach(function(item) {
+        if(item.id === product.id){
+          productBigCart.title = item.title
+          productBigCart.slug = item.slug
+          productBigCart.generalPhoto = item.generalPhoto
+          productBigCart.price = item.price
+          productBigCart.article = item.article
+        }
+      });
+      commit('addProductBigCart', productBigCart)
+      commit('localSaveBigCart')
+    },
+    deleteProductSmallcart({commit}, product){
+      let productIndex
+      this.state.smallCart.forEach(function(item, index) {
+        if(item.id == product.id && item.size == product.size){
+          productIndex = index
+        }
+      });
+      commit('deleteProductSmallcart', productIndex)
+      commit('localSaveSmallCart')
+      commit('localSaveBigCart')
+    },
+    deleteProductBigcart({commit}, product){
+      let productIndex
+      this.state.bigCart.forEach(function(item, index) {
+        if(item.id == product.id && item.size == product.size){
+          productIndex = index
+        }
+      });
+      commit('deleteProductBigcart', productIndex)
+      commit('localSaveBigCart')
+      commit('localSaveSmallCart')
     }
   }
 })

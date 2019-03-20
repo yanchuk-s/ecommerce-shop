@@ -89,6 +89,9 @@ export default {
     },
     getCategoryName() {
        return this.$store.getters.getGategoryForItem(this.product.category);
+    },
+    smallCart(){
+      return this.$store.getters.getSmallCart
     }
   },
   methods: {
@@ -109,6 +112,13 @@ export default {
         this.buttonError()
       }else{
         let selectSize = this.size
+        let product = {
+          id: this.product.id,
+          size: this.size,
+          category: this.getCategoryName.title
+        }
+        this.$store.dispatch('addProductSmallcart', product);
+        this.$store.dispatch('addProductBigCart', product);
         this.$notify({
           group: 'addToCart',
           type: 'success',

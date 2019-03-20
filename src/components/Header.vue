@@ -63,20 +63,42 @@
       </ul>
     </div>
     <div class="cart-icon">
-      <v-btn flat icon color="pink">
+      <v-btn @click="smallCartShowHide" flat icon color="pink">
         <v-icon>shopping_cart</v-icon>
       </v-btn>
+      <div v-if="smallCartLenght>0" class="cart-counter">
+        <span>
+          {{smallCartLenght}}
+        </span>
+      </div>
+      <transition name="fade">
+        <div v-if="smallCartShow && smallCartLenght>0" class="small-cart">
+          <div class="small-cart-items">
+            <SmallCartItem />
+          </div>
+          <div class="small-cart-footer">
+            <button @click="pushCart" class="link-big-cart">
+              to order
+            </button>
+          </div>
+        </div>
+      </transition>
     </div>
   </div> 
 </header>
 </template>
 
 <script>
+import SmallCartItem from '@/components/SmallCartItem.vue'
 export default {
   name: 'Header',
+  components: {
+    SmallCartItem
+  },
   data() {
     return {
-      mobNav: false
+      mobNav: false,
+      smallCartShow: false
     }
   },
   computed: {
@@ -85,11 +107,25 @@ export default {
     },
     lables() {
       return this.$store.getters.getAllLables
+    },
+    smallCartLenght() {
+      return this.$store.getters.getSmallCartLenght
     }
+  },
+  mounted() {
+     this.$on('showHideSmallCart', this.deleteProdHideShowCart);
   },
   methods: {
     showHide: function () {
       this.mobNav =! this.mobNav
+    },
+    smallCartShowHide: function () {
+      if(this.smallCartLenght > 0){
+        this.smallCartShow =! this.smallCartShow
+      }
+    },
+    deleteProdHideShowCart: function () {
+      this.smallCartShow =! this.smallCartShow
     },
     closenavLink: function () {
       let _this = this
@@ -108,6 +144,10 @@ export default {
     homelink: function (){
       this.$router.push({ name: 'home'})
       this.closenavLink()
+    },
+    pushCart: function () {
+      this.$router.push({ name: 'cart'})
+      this.deleteProdHideShowCart()
     }
   }
 }
@@ -121,7 +161,8 @@ export default {
   background: #fff;
   height: 82px;
   border-bottom: 1px solid #e1e1e1;
-  position: sticky;
+  // position: sticky;
+  z-index: 9;
   .mobile-nav{
     display: none;
   }
@@ -152,6 +193,57 @@ export default {
       }
     }
   }
+
+  .cart-icon{
+    position: relative;
+    .cart-counter{
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #000;
+      color: #fff;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span{
+        font-size: 10px;
+        margin-left: -2px;
+        margin-top: 1px;
+      }
+    }
+    .small-cart{
+      width: 300px;
+      position: absolute;
+      right: 0;
+      z-index: 9;
+      background: #f2f2f2;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px 0 hsla(0,0%,61.2%,.5);
+      .small-cart-footer{
+        padding: 20px 10px;
+        background: #fff;
+        border-radius: 8px;
+        .link-big-cart{
+          background: #ecf0f2;
+          color: #6d797e;
+          text-transform: uppercase;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          padding: 15px;
+          border-radius: 4px;
+          &:hover{
+            background: #e0e6ea;
+            color: #646e73;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 991px){
@@ -173,7 +265,7 @@ export default {
       left: 0;
       top: 0;
       height: 100%;
-      z-index: 10;
+      z-index: 9999;
     ul{
       display: flex;
       flex-direction: column;
@@ -188,6 +280,7 @@ export default {
           padding-left: 20px;
           cursor: pointer;
           text-transform: uppercase;
+          color: #000;
         }
       }
     }
@@ -213,4 +306,7 @@ export default {
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
   opacity: 0;
 }
+
+
+
 </style>

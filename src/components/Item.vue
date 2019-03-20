@@ -6,7 +6,10 @@
     >
       <img v-bind:src="item.generalPhoto" alt="">
     </div>
-    <div class="item-title">
+    <div 
+      @click="prodPage(getCategoryName.title,item.slug)"
+      class="item-title"
+    >
       {{item.title}}
     </div>
     <div class="item-category" @click="catalogLink(getCategoryName.title)">

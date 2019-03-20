@@ -14,14 +14,19 @@ export default new Router({
       component: Home
     },
     {
-      path: '/:category',
+      path: '/category/:category',
       name: 'catalog',
       component: () => import('./views/Catalog.vue')
     },
     {
-      path: '/:category/:slug',
+      path: '/:category/product/:slug',
       name: 'product',
       component: () => import('./views/Product.vue')
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('./views/Cart.vue')
     },
     // {
     //   path: '/:label',

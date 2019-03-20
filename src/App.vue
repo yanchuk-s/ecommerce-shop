@@ -17,6 +17,11 @@
       group="addToCart"
       animation-type="velocity"
     />
+    <notifications
+      position="bottom right"
+      group="deleteFromCart"
+      animation-type="velocity"
+    />
   </v-app>
 </template>
 
@@ -31,6 +36,14 @@ export default {
   },
   components:{
     Header
+  },
+  created() {
+    if(localStorage.getItem('smallCart')){
+      this.$store.state.smallCart = JSON.parse(localStorage.getItem('smallCart'));
+    }
+    if(localStorage.getItem('bigCart')){
+      this.$store.state.bigCart = JSON.parse(localStorage.getItem('bigCart'));
+    }
   },
   computed: {
     showHideLoader(){
