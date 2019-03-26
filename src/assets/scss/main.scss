@@ -50,3 +50,23 @@ ul{
     margin: 0;
     padding: 0;
 }
+
+.label-sale{
+    position: absolute;
+    padding: 6px 10px;
+    background: #ef5050;
+    color: #fff;
+    border-radius: 10px;
+    z-index: 9;
+    font-size: 11px;
+}
+
+.label-new{
+    position: absolute;
+    padding: 6px 10px;
+    background: #cd82ec;
+    color: #fff;
+    border-radius: 10px;
+    z-index: 9;
+    font-size: 11px;
+}

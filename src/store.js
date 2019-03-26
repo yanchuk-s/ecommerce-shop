@@ -301,6 +301,146 @@ export default new Vuex.Store({
         article: 'AA-1488',
         producingСountry: 'England',
         description: 'Рюкзак Napapijri Hala изготовлен из практичного полиэстера. Классическая модель для повседневного использования оснащена вместительным основным отсеком на двойной молнии. Внутри находится отделение для ноутбука с ремнем на липучке. Мягкая задняя панель и регулируемые плечевые ремни обеспечивают комфорт в течение всего дня, даже если рюкзак полностью заполнен. Спереди расположен еще один карман на молнии для вещей, к которым требуется быстрый доступ. Рюкзак оснащен ручкой для переноски. Завершением дизайна служит брендинг на фронтальном кармане и ремнях. Контрастные ленты с логотипом итальянской марки, выполненные в современной манере, являются отсылкой к классическим базовым элементам гардероба из прошлых коллекций.'
+      },
+      {
+        id: 9,
+        title: 'Stone Island Sweatshirt',
+        slug: 'sweatshirt-stone-island-lavender',
+        generalPhoto: 'https://img.brandshop.ru/cache/products/m/muzhskaya-tolstovka-stone-island-classic-crew-neck-lavender-0_676x676.jpg',
+        photos: [
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskaya-tolstovka-stone-island-classic-crew-neck-lavender-0_676x676.jpg'
+          },
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskaya-tolstovka-stone-island-classic-crew-neck-lavender-01-11_676x676.jpg'
+          },
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskaya-tolstovka-stone-island-classic-crew-neck-lavender-01-12_676x676.jpg'
+          }
+        ],
+        price: '320',
+        sizes: [
+          {
+            size: 'M'
+          },
+          {
+            size: 'L'
+          },
+          {
+            size: 'XL'
+          }
+        ],
+        category: 1,
+        label: 2,
+        stock: 1,
+        article: 'AA-14sd88',
+        producingСountry: 'italy',
+        description: 'Мужская толстовка Stone Island из хлопка получила приятный стойкий оттенок благодаря окрашиванию Garment dyed. Модель прямого кроя имеет все классические детали, присущие толстовке. Круглый эластичный ворот и эластичные вставки в манжетах и подоле создают универсальный внешний вид. Подмышками расположены ребристые вставки. На рукаве находится фирменный съемный патч с логотипом итальянской марки. Символ, который сочетает в себе компас и розу ветров, придумал основатель бренда Массимо Ости, чтобы показать свое увлечение морской тематикой. Толстовка подойдет для любого выбранного образа. Однотонная расцветка и узнаваемые детали.'
+      },
+      {
+        id: 10,
+        title: 'Stone Island Hooded',
+        slug: 'hooded-stone-island-lavender',
+        generalPhoto: 'https://img.brandshop.ru/cache/products/m/muzhskaya-tolstovka-stone-island-pouch-pocket-hooded-white-0_676x676.jpg',
+        photos: [
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskaya-tolstovka-stone-island-pouch-pocket-hooded-white-0_676x676.jpg'
+          },
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskaya-tolstovka-stone-island-pouch-pocket-hooded-white-01-11_676x676.jpg'
+          },
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskaya-tolstovka-stone-island-pouch-pocket-hooded-white-01-12_676x676.jpg'
+          }
+        ],
+        price: '420',
+        sizes: [
+          {
+            size: 'M'
+          },
+          {
+            size: 'L'
+          },
+          {
+            size: 'XL'
+          }
+        ],
+        category: 1,
+        label: 2,
+        stock: 1,
+        article: 'AA-14sd88',
+        producingСountry: 'italy',
+        description: 'Мужская толстовка Stone Island изготовлена из мягкого приятного на ощупь хлопка. Материал отлично пропускает воздух и сохраняет тепло. Ткань прошла процесс обработки Garment-dyed, что означает окрашивание изделия в готовом виде. Модель прямого кроя дополняется регулируемым двухслойным капюшоном. У ворота расположена V-образная ребристая вставка. Вместительный карман-кенгуру спереди. В манжетах и подоле находятся эластичные вставки. Для большего комфорта подмышками также расположены ребристые вставки. Завершает дизайн съемный патч с логотипом. Интересное дополнение для любого образа.'
+      },
+      {
+        id: 11,
+        title: 'Stone Island Shadow Project ',
+        slug: 'lenticular-jacquard-zip-shirt-black',
+        generalPhoto: 'https://img.brandshop.ru/cache/products/m/muzhskaya-kurtka-stone-island-shadow-project-lenticular-jacquard-zip-shirt-black-0_676x676.jpg',
+        photos: [
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskaya-kurtka-stone-island-shadow-project-lenticular-jacquard-zip-shirt-black-0_676x676.jpg'
+          },
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskaya-kurtka-stone-island-shadow-project-lenticular-jacquard-zip-shirt-black-01-11_676x676.jpg'
+          },
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskaya-kurtka-stone-island-shadow-project-lenticular-jacquard-zip-shirt-black-01-12_676x676.jpg'
+          }
+        ],
+        price: '650',
+        sizes: [
+          {
+            size: 'M'
+          },
+          {
+            size: 'L'
+          },
+          {
+            size: 'XL'
+          }
+        ],
+        category: 3,
+        label: 1,
+        stock: 1,
+        article: 'AA-14sd88',
+        producingСountry: 'italy',
+        description: 'Мужская толстовка Stone Island изготовлена из мягкого приятного на ощупь хлопка. Материал отлично пропускает воздух и сохраняет тепло. Ткань прошла процесс обработки Garment-dyed, что означает окрашивание изделия в готовом виде. Модель прямого кроя дополняется регулируемым двухслойным капюшоном. У ворота расположена V-образная ребристая вставка. Вместительный карман-кенгуру спереди. В манжетах и подоле находятся эластичные вставки. Для большего комфорта подмышками также расположены ребристые вставки. Завершает дизайн съемный патч с логотипом. Интересное дополнение для любого образа.'
+      },
+      {
+        id: 12,
+        title: 'Stone Island Packable',
+        slug: 'packable-gore-tex-black',
+        generalPhoto: 'https://img.brandshop.ru/cache/products/m/muzhskoj-plasch-stone-island-packable-gore-tex-black-0_676x676.jpg',
+        photos: [
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskoj-plasch-stone-island-packable-gore-tex-black-0_676x676.jpg'
+          },
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskoj-plasch-stone-island-packable-gore-tex-black-1_676x676.jpg'
+          },
+          {
+            src: 'https://img.brandshop.ru/cache/products/m/muzhskoj-plasch-stone-island-packable-gore-tex-black-01-11_676x676.jpg'
+          }
+        ],
+        price: '1050',
+        sizes: [
+          {
+            size: 'M'
+          },
+          {
+            size: 'L'
+          },
+          {
+            size: 'XL'
+          }
+        ],
+        category: 3,
+        label: 1,
+        stock: 1,
+        article: 'AA-14sd88',
+        producingСountry: 'italy',
+        description: 'Мужской плащ Stone Island изготовлен из инновационной ткани Goretex Paclite. Она отличается легкостью и водонепроницаемостью. Особенность материала на основе полиэстера, оснащенного мембраной, в компактности. Итальянский бренд удачно использовал эту функцию. Плащ можно убрать в сумку, для этого на спине есть специальная система с ремнем. Модель прямого кроя застегивается на молнию с планкой на липучках и кнопках. Традиционный дизайн с отложным воротником. По бокам расположены карманы на скрытой молнии. В области груди есть два кармана с клапанами. Манжеты регулируются с помощью кнопок.'
       }
     ],
     bigCart: [],
@@ -404,6 +544,7 @@ export default new Vuex.Store({
           productTosmallCart.slug = item.slug
           productTosmallCart.generalPhoto = item.generalPhoto
           productTosmallCart.price = item.price
+          productTosmallCart.label = item.label
         }
       });
       commit('addProductSmallcart', productTosmallCart)
@@ -422,6 +563,7 @@ export default new Vuex.Store({
           productBigCart.generalPhoto = item.generalPhoto
           productBigCart.price = item.price
           productBigCart.article = item.article
+          productBigCart.label = item.label
         }
       });
       commit('addProductBigCart', productBigCart)

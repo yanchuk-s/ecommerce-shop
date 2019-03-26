@@ -35,10 +35,5 @@ export default new Router({
       name: 'cart',
       component: () => import('./views/Cart.vue')
     },
-    // {
-    //   path: '/:label',
-    //   name: 'label',
-    //   component: () => import('./views/Label.vue')
-    // }
   ]
 })

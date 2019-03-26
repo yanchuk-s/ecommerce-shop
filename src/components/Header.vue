@@ -218,7 +218,7 @@ export default {
       width: 300px;
       position: absolute;
       right: 0;
-      z-index: 9;
+      z-index: 11;
       background: #f2f2f2;
       border-radius: 4px;
       box-shadow: 0 2px 4px 0 hsla(0,0%,61.2%,.5);

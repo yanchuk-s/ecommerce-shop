@@ -2,6 +2,12 @@
   <div>
     <div v-if="smallCartLenght > 0" class="big-cart-items-wrp">
       <div v-for="(product, index) in products" :key="index" class="big-cart-item">
+        <div class="label-new label" v-if="product.label == 1">
+          new
+        </div>
+        <div class="label-sale label" v-if="product.label == 2">
+          sale
+        </div>
         <div class="img" @click="prodPage(product.category,product.slug)">
           <img v-bind:src=product.generalPhoto alt="">
         </div>
@@ -85,9 +91,13 @@ export default {
     padding: 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
+    position: relative;
      &:last-child{
       margin-bottom: 0;
       border-bottom: none;
+    }
+    .label{
+      top: 0;
     }
     .img{
       cursor: pointer;

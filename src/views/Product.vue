@@ -3,6 +3,12 @@
     <v-container grid-list-md text-xs-center>
     <v-layout row wrap>
       <v-flex xs6>
+        <div class="label-new" v-if="product.label == 1">
+          new
+        </div>
+        <div class="label-sale" v-if="product.label == 2">
+          sale
+        </div>
         <carousel :items=1>
           <div
             v-for="(img, index) in product.photos" :key="index"

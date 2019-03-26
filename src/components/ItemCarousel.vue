@@ -24,17 +24,6 @@
     <div class="item-price">
       {{item.price}}$
     </div>
-    <div class="item-sizes">
-      <div class="shadow-top-hide"></div>
-      <div class="size-list">
-        <div
-          @click="addToCart(size.size)"
-          v-for="(size, index) in item.sizes" :key="index"
-          class="size">
-            {{size.size}}
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -57,26 +46,6 @@ export default {
     },
     prodPage: function (category,slug) {
       this.$router.push({ name: 'product', params: { category: category, slug: slug } })
-    },
-    addToCart: function (size){
-      console.log(size)
-      let productName = this.item.title
-      let selectSize = size
-      let product = {
-        id: this.item.id,
-        size: selectSize,
-        category: this.getCategoryName.title
-      }
-      console.log(productName, selectSize, product)
-      this.$store.dispatch('addProductSmallcart', product);
-      this.$store.dispatch('addProductBigCart', product);
-      this.$notify({
-        group: 'addToCart',
-        type: 'success',
-        title: `${productName}, ${selectSize} Size`,
-        text: 'Add to cart',
-        duration: 1000,
-      });
     }
   }
 }
@@ -84,7 +53,7 @@ export default {
 
 <style lang="scss">
   .item{
-    margin: 10px 0;
+    margin: 15px;
     padding: 12px;
     position: relative;
     .item-img{

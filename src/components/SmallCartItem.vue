@@ -1,6 +1,12 @@
 <template>
   <div>
       <div class="small-item" v-for="(product, index) in smallCart" :key="index">
+        <div class="label-new label" v-if="product.label == 1">
+          new
+        </div>
+        <div class="label-sale label" v-if="product.label == 2">
+          sale
+        </div>
         <div
           @click="prodPage(product.category,product.slug)"
           class="item-img"
@@ -76,9 +82,13 @@ export default {
   margin-bottom: 10px;
   border-bottom: 1px solid #ccc;
   align-items: center;
+  position: relative;
   &:last-child{
     margin-bottom: 0;
     border-bottom: none;
+  }
+  .label{
+    top: 0;
   }
   .item-img{
     width: 30%;
